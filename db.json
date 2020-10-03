@@ -1,0 +1,59 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Jugo de Zanahoria",
+      "precio": "31111"
+    },
+    {
+      "id": 2,
+      "nombre": "Jugo de Naranja",
+      "precio": "1"
+    },
+    {
+      "nombre": "Jugo de Naranja",
+      "precio": "300",
+      "id": 3
+    },
+    {
+      "nombre": "Rib Eye 800g",
+      "precio": "200",
+      "id": 4
+    },
+    {
+      "nombre": "Jugo de Fresa",
+      "precio": "200",
+      "id": 5
+    },
+    {
+      "nombre": "Andres",
+      "precio": 1,
+      "id": 6
+    },
+    {
+      "nombre": "Andres Barros Rivas",
+      "precio": 12323,
+      "id": 7
+    },
+    {
+      "nombre": "Andres",
+      "precio": 123123,
+      "id": 8
+    },
+    {
+      "nombre": "React - La Guía Completa: Hooks Context Redux MERN +15 Apps",
+      "precio": 123,
+      "id": 9
+    },
+    {
+      "nombre": "React - La Guía Completa: Hooks Context Redux MERN +15 Apps",
+      "precio": 123,
+      "id": 10
+    },
+    {
+      "nombre": "Andres Barros Rivas",
+      "precio": 12323,
+      "id": 11
+    }
+  ]
+}
