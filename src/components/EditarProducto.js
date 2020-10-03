@@ -1,41 +1,52 @@
 import React, {useState, useEffect} from 'react';
-import { useHistory } from 'react-router-dom'
-import { useDistpach, useSelector } from 'react-redux'
-import {editarProducto} from '../actions/productoActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { editarProductoAction } from '../actions/productoActions'
+import {useHistory} from 'react-router-dom'
 
 
 const EditarProducto = () => {
+
+    const dispatch = useDispatch()
+    const history = useHistory()
 
     //nuevo state de producto
     const [producto, guardarProducto] = useState({
         nombre: '',
         precio: ''
     })
-
+    
+    
     //producto a editar
-    const history = useHistory()
+
     const productoeditar = useSelector(state => state.productos.productoeditar)
 
+    //llenar el state automaticamente
+    
+    useEffect( () => {
+        guardarProducto(productoeditar)
+    }, [productoeditar])
 
+    //leer los datos del formulario
     const onChangeFormulario = e => {
+
         guardarProducto({
             ...producto,
             [e.target.name] : e.target.value
         })
     }
     
-    useEffect(() => {
-        guardarProducto(productoeditar)
-    }, [productoeditar])
-
-    const { nombre, precio, id } = producto
-
-    const handleForSubmit = e => {
+    const { nombre, precio, id } = producto;
+    //enviar formulario
+    
+    const submitEditarProducto = e => { 
         e.preventDefault()
 
-        editarProducto()
-    }
+        dispatch(editarProductoAction(producto)) 
 
+        history.push('/')
+    }
+    
+    
     return (
         <div className='row justify-content-center'>
             <div className='col-md-9'>
@@ -45,7 +56,7 @@ const EditarProducto = () => {
                             Editar Producto
                         </h2>
                         <form
-                            onSubmit={handleForSubmit}
+                            onSubmit={submitEditarProducto}
                         >
                             <div className='form-group'>
                                 <label>Nombre Producto</label>

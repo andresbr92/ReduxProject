@@ -91,7 +91,7 @@ export function borrarProductoAction(id) {
         dispatch(obtenerProductoEliminar(id))
         try {
             await clienteAxios.delete(`/productos/${id}`)
-            dispatch( eliminarProductoExito() )
+            dispatch(eliminarProductoExito())
         } catch (error) {
             console.log(error)
             dispatch(eliminarProductoError())
@@ -104,7 +104,7 @@ const obtenerProductoEliminar = id => ({
     payload: id
 })
 
-const eliminarProductoExito = () => ({ 
+const eliminarProductoExito = () => ({
     type: PRODUCTO_ELMINADO_EXITO
 })
 const eliminarProductoError = () => ({
@@ -114,27 +114,28 @@ const eliminarProductoError = () => ({
 
 //colocar producto en edicion
 export function obtenerProductoEditar(producto) {
-    return (distpach) => {
-        distpach(obtenerProductoEditarAction(producto))
+    return (dispatch) => {
+        dispatch(obtenerProductoEditarAction(producto))
     }
 }
 const obtenerProductoEditarAction = producto => ({
     type: OBTENER_PRODUCTO_EDITAR,
     payload: producto
 })
+
+
 //edita un registro en la api y stete
-export function editarProducto(producto) {
-    return (dispatch) => {
-        dispatch(editarProductoAction(producto))
+export function editarProductoAction(producto) {
+
+    return async (distpach) => {
+        distpach(editarProducto())
         try {
-            const resutlado = clienteAxios.put(`/producto/${producto.id}`, producto)
-            console.log(resutlado)
+            await clienteAxios.put(`/productos/${producto.id}`, producto)
         } catch (error) {
-            
+            console.log(error)
         }
     }
 }
-const editarProductoAction = producto => ({
-    type: COMENZAR_EDICION_PRODUCTO,
-    payload:producto
+const editarProducto = producto => ({
+    type: COMENZAR_EDICION_PRODUCTO
 })

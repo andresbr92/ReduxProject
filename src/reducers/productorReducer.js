@@ -73,7 +73,7 @@ export default function (state = initialState, action) {
             }
         case COMENZAR_EDICION_PRODUCTO:
             return {
-                
+                ...state,
             }
         default:
             return state

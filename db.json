@@ -1,27 +1,12 @@
 {
   "productos": [
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
-      "id": 5
-    },
-    {
-      "nombre": "Andres",
-      "precio": 1,
+      "nombre": "Andres comeme los hyuevos",
+      "precio": "12",
       "id": 6
     },
     {
-      "nombre": "Andres Barros Rivas",
-      "precio": 12323,
-      "id": 7
-    },
-    {
-      "nombre": "Andres",
+      "nombre": "Andres pepino ddd",
       "precio": 123123,
       "id": 8
     },
@@ -31,8 +16,8 @@
       "id": 9
     },
     {
-      "nombre": "React - La Guía Completa: Hooks Context Redux MERN +15 Apps",
-      "precio": 123,
+      "nombre": "Andres Barros Rivas",
+      "precio": 234234,
       "id": 10
     }
   ]
