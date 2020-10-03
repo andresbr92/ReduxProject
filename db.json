@@ -2,7 +2,7 @@
   "productos": [
     {
       "nombre": "Andres comeme los hyuevos",
-      "precio": "12",
+      "precio": "1222222222222222222222",
       "id": 6
     },
     {
@@ -11,7 +11,7 @@
       "id": 8
     },
     {
-      "nombre": "React - La Guía Completa: Hooks Context Redux MERN +15 Apps",
+      "nombre": "React - La Guía Completdddddda: Hooks Context Redux MERN +15 Apps",
       "precio": 123,
       "id": 9
     },
@@ -19,6 +19,16 @@
       "nombre": "Andres Barros Rivas",
       "precio": 234234,
       "id": 10
+    },
+    {
+      "nombre": "Andres",
+      "precio": 2222,
+      "id": 11
+    },
+    {
+      "nombre": "Andres",
+      "precio": 123123123,
+      "id": 12
     }
   ]
 }

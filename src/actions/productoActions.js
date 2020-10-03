@@ -127,15 +127,20 @@ const obtenerProductoEditarAction = producto => ({
 //edita un registro en la api y stete
 export function editarProductoAction(producto) {
 
-    return async (distpach) => {
-        distpach(editarProducto())
+    return async (dispatch) => {
+        dispatch(editarProducto())
         try {
             await clienteAxios.put(`/productos/${producto.id}`, producto)
+            dispatch (editarProductoExito(producto))
         } catch (error) {
             console.log(error)
         }
     }
 }
-const editarProducto = producto => ({
+const editarProducto = () => ({
     type: COMENZAR_EDICION_PRODUCTO
+})
+const editarProductoExito = producto => ({
+    type: PRODUCTO_EDITADO_EXITO,
+    payload: producto
 })
