@@ -4,7 +4,10 @@ import {
     AGREGAR_PRODUCTO_ERROR,
     COMENZAR_DESCARGA_PRODUCTOS,
     DESCARGA_PRODUCTOS_EXITO,
-    DESCARGA_PRODUCTOS_ERROR
+    DESCARGA_PRODUCTOS_ERROR,
+    OBTENER_PRODUCTO_ELMINAR,
+    PRODUCTO_ELMINADO_EXITO,
+    PRODUCTO_ELMINADO_ERROR
 
 } from '../types'
 
@@ -13,7 +16,8 @@ import {
 const initialState = {
     productos: [],
     error: null,
-    loading: false
+    loading: false,
+    productoelminar: null
 }
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -42,6 +46,11 @@ export default function (state = initialState, action) {
                 loading: false,
                 error: null,
                 productos: action.payload
+            }
+        case OBTENER_PRODUCTO_ELMINAR:
+            return {
+                ...state,
+                productoelminar: action.payload
             }
         default:
             return state

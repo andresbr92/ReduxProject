@@ -54,6 +54,11 @@
       "nombre": "Andres Barros Rivas",
       "precio": 12323,
       "id": 11
+    },
+    {
+      "nombre": "commeme las pelotas",
+      "precio": 1231,
+      "id": 12
     }
   ]
 }
