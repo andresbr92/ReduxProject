@@ -34,7 +34,7 @@ const Productos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {productos.length === 0 ? <p>No hay productos</p> : (
+                    {productos.length === 0 ? <span>No hay productos</span> : (
                         productos.map(producto => (
                             <ProductoUnico
                                 key={producto.id}

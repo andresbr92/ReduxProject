@@ -2,12 +2,19 @@ import {
     AGREGAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
     AGREGAR_PRODUCTO_ERROR,
+
     COMENZAR_DESCARGA_PRODUCTOS,
     DESCARGA_PRODUCTOS_EXITO,
     DESCARGA_PRODUCTOS_ERROR,
+
     OBTENER_PRODUCTO_ELMINAR,
     PRODUCTO_ELMINADO_EXITO,
-    PRODUCTO_ELMINADO_ERROR
+    PRODUCTO_ELMINADO_ERROR,
+
+    OBTENER_PRODUCTO_EDITAR,
+    COMENZAR_EDICION_PRODUCTO,
+    PRODUCTO_EDITADO_EXITO,
+    PRODUCTO_EDITADO_ERROR
 
 } from '../types'
 import clienteAxios from '../config/service/axiosConfig'
@@ -66,7 +73,7 @@ export function obtenerProductosAction() {
         }
     }
 }
-const descargarProductos = () => ({ 
+const descargarProductos = () => ({
     type: COMENZAR_DESCARGA_PRODUCTOS,
     payload: true
 })
@@ -76,17 +83,58 @@ const descargarProductosExitosa = productos => ({
 })
 const descargaProductosError = () => ({
     type: DESCARGA_PRODUCTOS_ERROR,
-    payload:true
+    payload: true
 })
 // seleccion y elimina el producto
-export function borrarProductoAction(id) { 
-    return async (dispatch) => { 
+export function borrarProductoAction(id) {
+    return async (dispatch) => {
         dispatch(obtenerProductoEliminar(id))
-        console.log(id)
+        try {
+            await clienteAxios.delete(`/productos/${id}`)
+            dispatch( eliminarProductoExito() )
+        } catch (error) {
+            console.log(error)
+            dispatch(eliminarProductoError())
+        }
     }
 
 }
 const obtenerProductoEliminar = id => ({
     type: OBTENER_PRODUCTO_ELMINAR,
     payload: id
+})
+
+const eliminarProductoExito = () => ({ 
+    type: PRODUCTO_ELMINADO_EXITO
+})
+const eliminarProductoError = () => ({
+    type: PRODUCTO_ELMINADO_ERROR,
+    payload: true
+})
+
+//colocar producto en edicion
+export function obtenerProductoEditar(producto) {
+    return (distpach) => {
+        distpach(obtenerProductoEditarAction(producto))
+    }
+}
+const obtenerProductoEditarAction = producto => ({
+    type: OBTENER_PRODUCTO_EDITAR,
+    payload: producto
+})
+//edita un registro en la api y stete
+export function editarProducto(producto) {
+    return (dispatch) => {
+        dispatch(editarProductoAction(producto))
+        try {
+            const resutlado = clienteAxios.put(`/producto/${producto.id}`, producto)
+            console.log(resutlado)
+        } catch (error) {
+            
+        }
+    }
+}
+const editarProductoAction = producto => ({
+    type: COMENZAR_EDICION_PRODUCTO,
+    payload:producto
 })
